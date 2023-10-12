@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d34i65dsjdgj1"
+path="res://.godot/imported/Punch 1 by peridactyloptrix Id-209765.wav-14c8fca11224fb25fc041af140a12595.sample"
+
+[deps]
+
+source_file="res://Sound_Vol.39 Punch Hit Sound Pack/Punch 1 by peridactyloptrix Id-209765.wav"
+dest_files=["res://.godot/imported/Punch 1 by peridactyloptrix Id-209765.wav-14c8fca11224fb25fc041af140a12595.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

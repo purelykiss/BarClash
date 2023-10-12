@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgsxyt7ojgi0f"
+path="res://.godot/imported/Punch 1 2 by taylorsyoung@gmailcom Id-94778.wav-1ce7bb8f18bef19d7bfe35ab9b046b85.sample"
+
+[deps]
+
+source_file="res://Sound_Vol.39 Punch Hit Sound Pack/Punch 1 2 by taylorsyoung@gmailcom Id-94778.wav"
+dest_files=["res://.godot/imported/Punch 1 2 by taylorsyoung@gmailcom Id-94778.wav-1ce7bb8f18bef19d7bfe35ab9b046b85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
