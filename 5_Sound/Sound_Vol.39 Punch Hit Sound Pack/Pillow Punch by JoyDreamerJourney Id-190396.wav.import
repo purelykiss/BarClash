@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rn2fhsudio6n"
+path="res://.godot/imported/Pillow Punch by JoyDreamerJourney Id-190396.wav-2f8d3685b5e6421a4973aa7d058aaa51.sample"
+
+[deps]
+
+source_file="res://5_Sound/Sound_Vol.39 Punch Hit Sound Pack/Pillow Punch by JoyDreamerJourney Id-190396.wav"
+dest_files=["res://.godot/imported/Pillow Punch by JoyDreamerJourney Id-190396.wav-2f8d3685b5e6421a4973aa7d058aaa51.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
