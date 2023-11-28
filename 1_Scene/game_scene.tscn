@@ -812,8 +812,7 @@ text = "설정
 "
 icon_alignment = 1
 
-[node name="UIWindowKeySetting" type="ColorRect" parent="Camera2D/UIPauseMenu"]
-visible = false
+[node name="UIWindowKeySetting" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_PlayerUpButton", "_PlayerDownButton", "_PlayerLeftButton", "_PlayerRightButton", "_PlayerAttackButton", "_PlayerJumpButton", "_PlayerDodgeButton", "_PlayerSkillAButton", "_PlayerSkillBButton", "_PlayerSkillCButton", "_PlayerSkillDButton", "_UIUpButton", "_UIDownButton", "_UILeftButton", "_UIRightButton", "_UISelectButton", "_UIAcceptButton", "_UICancelButton")]
 custom_minimum_size = Vector2(200, 130)
 layout_mode = 1
 anchors_preset = 8
@@ -829,6 +828,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.490196, 0.490196, 0.490196, 1)
 script = ExtResource("22_8uxx1")
+_PlayerUpButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button")
+_PlayerDownButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button2")
+_PlayerLeftButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button3")
+_PlayerRightButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button4")
+_PlayerAttackButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button5")
+_PlayerJumpButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button6")
+_PlayerDodgeButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button7")
+_PlayerSkillAButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button2")
+_PlayerSkillBButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button3")
+_PlayerSkillCButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button4")
+_PlayerSkillDButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button5")
+_UIUpButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button2")
+_UIDownButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button3")
+_UILeftButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button4")
+_UIRightButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button5")
+_UISelectButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button")
+_UIAcceptButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button6")
+_UICancelButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting"]
 layout_mode = 1
