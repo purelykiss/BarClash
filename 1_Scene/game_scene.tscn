@@ -465,6 +465,7 @@ limit_bottom = 352
 script = ExtResource("6_syyxs")
 
 [node name="DebugLabel" type="Label" parent="Camera2D" node_paths=PackedStringArray("_playerMove")]
+visible = false
 offset_left = -128.0
 offset_top = -80.0
 offset_right = 128.0
