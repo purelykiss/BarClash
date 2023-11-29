@@ -1,32 +1,17 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class UIWindowKeySetting : ColorRect, IWindow
 {
     [Export] string _id = "keySetting";
     UIPauseMenu _UIPauseMenu;
     bool _isActive;
-    [ExportGroup("Game")]
-    [Export] Button _PlayerUpButton;
-    [Export] Button _PlayerDownButton;
-    [Export] Button _PlayerLeftButton;
-    [Export] Button _PlayerRightButton;
-    [Export] Button _PlayerAttackButton;
-    [Export] Button _PlayerJumpButton;
-    [Export] Button _PlayerDodgeButton;
-    [ExportGroup("Skill")]
-    [Export] Button _PlayerSkillAButton;
-    [Export] Button _PlayerSkillBButton;
-    [Export] Button _PlayerSkillCButton;
-    [Export] Button _PlayerSkillDButton;
-    [ExportGroup("Menu")]
-    [Export] Button _UIUpButton;
-    [Export] Button _UIDownButton;
-    [Export] Button _UILeftButton;
-    [Export] Button _UIRightButton;
-    [Export] Button _UISelectButton;
-    [Export] Button _UIAcceptButton;
-    [Export] Button _UICancelButton;
+    [Export] Button[] _KeySettingButton;
+    List<KeySettingButton> _KeySettingButtonList = new List<KeySettingButton>();
+    Dictionary<string, string> ActionAndKey = new Dictionary<string, string>();    //키보드 >> key_ 마우스 >> mus_
+    Button CurrentButton = null;
+    bool flagChanging;
 
     public string ID => _id;
 
@@ -34,17 +19,42 @@ public partial class UIWindowKeySetting : ColorRect, IWindow
     {
         _UIPauseMenu = GetParent<UIPauseMenu>();
 
-        if (!_PlayerUpButton.IsConnected(Button.SignalName.Pressed, new Callable(this, MethodName.KeySettingPressed)))
-            _PlayerUpButton.Connect(Button.SignalName.Pressed, new Callable(this, MethodName.KeySettingPressed));
-        var tmp = InputMap.ActionGetEvents("ui_select");
-        InputEvent tmp2 = tmp[0];
-        var tmp3 = (InputEventJoypadButton)tmp2;
+        foreach(var item in _KeySettingButton)
+        {
+            if (item is KeySettingButton)
+                _KeySettingButtonList.Add((KeySettingButton)item);
+        }
 
-        var tmpA = InputMap.ActionGetEvents("player_attack");
-        InputEvent tmpB = tmpA[0];
-        var tmpC = (InputEventKey)tmpB;
-        tmpC.Set("PhysicalKeycode", 0L);    //작동안함, _input으로 키를 받으면 피지컬이 아닌 Keycode도 받아서 한영키에 영향을 받을 수 있다.
-        
+        foreach(var item in _KeySettingButtonList)
+        {
+            string ActionID = item.ActionID;
+            string ActionKey = "";
+            foreach(var itemX in InputMap.ActionGetEvents(ActionID))
+            {
+                if (itemX is InputEventKey)
+                {
+                    InputEventKey tmpkey = (InputEventKey)itemX;
+                    ActionKey = "key_";
+                    string tmpStr = OS.GetKeycodeString(tmpkey.PhysicalKeycode);
+                    if (tmpStr == "")
+                        tmpStr = OS.GetKeycodeString(tmpkey.Keycode);
+                    ActionKey += tmpStr;
+                }
+                else if (itemX is InputEventMouseButton)
+                {
+                    InputEventMouseButton tmpkey = (InputEventMouseButton)itemX;
+                    ActionKey = "mus_";
+                    ActionKey += tmpkey.ButtonIndex.ToString();
+                }
+            }
+            ActionAndKey.Add(ActionID, ActionKey);
+
+            if (!item.IsConnected(KeySettingButton.SignalName.KeySettingButtonPressed, new Callable(this, MethodName.OnButtonPressed)))
+                item.Connect(KeySettingButton.SignalName.KeySettingButtonPressed, new Callable(this, MethodName.OnButtonPressed));
+        }
+        CurrentButton = null;
+        flagChanging = false;
+        CheckButtonText();
 
         _isActive = true;   //SetActive(false)를 올바르게 작동시키기 위함. 최종 기대 결과는 false
         SetActive(false);
@@ -52,15 +62,25 @@ public partial class UIWindowKeySetting : ColorRect, IWindow
 
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventKey)
-        {
-            InputMap.ActionEraseEvents("player_attack");
-            InputMap.ActionAddEvent("player_attack", @event);
-            _UIPauseMenu.ChangeCurWindow("option");
-        }
-
         if (!_isActive)
             return;
+
+        if(flagChanging)
+        {
+            bool flagValidInput = false;
+            if (@event is InputEventKey || @event is InputEventMouseButton)
+                flagValidInput = true;
+
+            if(flagValidInput)
+            {
+                flagChanging = false;
+                ActivateFeature();
+                CheckValidKey(@event);
+                CheckButtonText();
+                AcceptEvent();
+                return;
+            }
+        }
 
         bool flagEventUsed = false;
 
@@ -112,16 +132,81 @@ public partial class UIWindowKeySetting : ColorRect, IWindow
 
     public void ActivateFeature()
     {
-        _PlayerUpButton.Disabled = false;
+        foreach(var item in _KeySettingButtonList)
+        {
+            item.Disabled = false;
+        }
     }
 
     public void DisableFeature()
     {
-        _PlayerUpButton.Disabled = true;
+        foreach (var item in _KeySettingButtonList)
+        {
+            item.Disabled = true;
+        }
     }
 
-    public void KeySettingPressed()
+    public void CheckButtonText()
     {
-        _UIPauseMenu.ChangeCurWindow("keySetting");
+        foreach (var item in _KeySettingButtonList)
+        {
+            KeySettingButton tmpBtn = (KeySettingButton)item;
+            if (tmpBtn == null)
+                continue;
+            item.Text = ActionAndKey[tmpBtn.ActionID];
+        }
+    }
+
+    private void CheckValidKey(InputEvent @event)
+    {
+        //keySetting_cancel이면 캔슬
+        if (@event.IsActionPressed("keySetting_cancel"))
+            return;
+
+        string curKey = "";
+        //키마인지 체크, 아니면 캔슬
+        if (@event is InputEventKey)
+        {
+            InputEventKey tmp = (InputEventKey)@event;
+            curKey = "key_";
+            string tmpStr = OS.GetKeycodeString(tmp.PhysicalKeycode);
+            if (tmpStr == "")
+                tmpStr = OS.GetKeycodeString(tmp.Keycode);
+            curKey += tmpStr;
+        }
+        else if (@event is InputEventMouseButton)
+        {
+            InputEventMouseButton tmp = (InputEventMouseButton)@event;
+            curKey = "mus_";
+            curKey += tmp.ButtonIndex.ToString();
+        }
+        else
+            return;
+
+        //키 겹치는지 마지막으로 체크 후 키 변경
+        if (ActionAndKey.ContainsValue(curKey))
+            return;
+        else
+        {
+            KeySettingButton tmp = (KeySettingButton)CurrentButton;
+            foreach (var item in InputMap.ActionGetEvents(tmp.ActionID))
+            {
+                if (item is InputEventKey || item is InputEventMouseButton)
+                {
+                    InputMap.ActionEraseEvent(tmp.ActionID, item);
+                    break;
+                }
+            }
+            InputMap.ActionAddEvent(tmp.ActionID, @event);
+            ActionAndKey[tmp.ActionID] = curKey;
+        }
+    }
+
+    public void OnButtonPressed(Button button)
+    {
+            flagChanging = true;
+            DisableFeature();
+            CurrentButton = button;
+            CurrentButton.Text = "Changing";
     }
 }
