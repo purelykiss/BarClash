@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://brty0qv8vb08y"]
+[gd_scene load_steps=41 format=3 uid="uid://brty0qv8vb08y"]
 
 [ext_resource type="Script" path="res://2_Script/Field.cs" id="1_mlgvl"]
 [ext_resource type="Texture2D" uid="uid://crjvbsciva4iu" path="res://4_Sprite/TileMap_Country-village_asset_pack/Country-village_asset_pack/2_Parallax background/background.png" id="2_8yhgt"]
@@ -21,15 +21,17 @@
 [ext_resource type="Texture2D" uid="uid://r6bpox3v7v7k" path="res://4_Sprite/Icon_CustomIcon/IconDownDodge.png" id="14_knrnl"]
 [ext_resource type="Script" path="res://2_Script/SuperArmerBar.cs" id="15_ys7si"]
 [ext_resource type="Script" path="res://2_Script/UIScreenEnemy.cs" id="16_nu8xb"]
-[ext_resource type="Script" path="res://2_Script/UIScreenBlind.cs" id="18_2a1de"]
-[ext_resource type="Script" path="res://2_Script/UIPauseMenu.cs" id="19_g5flb"]
-[ext_resource type="Script" path="res://2_Script/UIWindowMain.cs" id="20_ljv6p"]
-[ext_resource type="Script" path="res://2_Script/UIWindowOption.cs" id="21_s5ew1"]
-[ext_resource type="Script" path="res://2_Script/UIWindowKeySetting.cs" id="22_8uxx1"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIScreenBlind.cs" id="18_yuak8"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIPauseMenu.cs" id="19_jhpql"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIPauseWindowMain.cs" id="20_j4k8r"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIPauseWindowOption.cs" id="21_b2mwg"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIPauseWindowKeySetting.cs" id="22_arw0x"]
 [ext_resource type="Script" path="res://2_Script/StaggerTestAttack.cs" id="22_d7s3j"]
-[ext_resource type="Script" path="res://2_Script/UIPopupGoBack.cs" id="23_pocul"]
-[ext_resource type="Script" path="res://2_Script/KeySettingButton.cs" id="23_wluk0"]
-[ext_resource type="AudioStream" uid="uid://bqg5s0kbypct6" path="res://5_Sound/Sound_PeriTune-2020_9-Battle_Tracks/PeriTune-2020_9-Battle_Tracks/16-Havoc.mp3" id="27_ewv1i"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/KeySettingButton.cs" id="23_ncvbu"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIPausePopupGoBack.cs" id="24_jq3mw"]
+[ext_resource type="Script" path="res://2_Script/UIPauseMenu/UIPausePopupRestart.cs" id="25_li7ge"]
+[ext_resource type="AudioStream" uid="uid://tqhfav3dndba" path="res://5_Sound/Sound_PeriTune-2020_9-Battle_Tracks/PeriTune-2020_9-Battle_Tracks/24-Raid_FolkMetal.mp3" id="30_63a2b"]
+[ext_resource type="Script" path="res://2_Script/SoundLoop.cs" id="31_mb2c2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cx53l"]
 resource_name = "<null>"
@@ -500,39 +502,41 @@ offset_bottom = 3.0
 color = Color(1, 0, 0, 1)
 
 [node name="UIScreenPlayerSkill1Cooltime" parent="Camera2D" node_paths=PackedStringArray("_playerMove") instance=ExtResource("9_3cxv2")]
+offset_left = -24.0
+offset_right = 40.0
 texture = ExtResource("9_bii52")
 _playerMove = NodePath("../../Player")
 skillCooltimeName = "_guardCooltime"
 curSkillCooltimeName = "_curGuardCooltime"
 
 [node name="UIScreenPlayerSkill2Cooltime" parent="Camera2D" node_paths=PackedStringArray("_playerMove") instance=ExtResource("9_3cxv2")]
-offset_left = -14.0
-offset_right = 50.0
+offset_left = -11.0
+offset_right = 53.0
 texture = ExtResource("10_f7i0n")
 _playerMove = NodePath("../../Player")
 skillCooltimeName = "_straightCooltime"
 curSkillCooltimeName = "_curStraightCooltime"
 
 [node name="UIScreenPlayerSkill3Cooltime" parent="Camera2D" node_paths=PackedStringArray("_playerMove") instance=ExtResource("9_3cxv2")]
-offset_left = -1.0
-offset_right = 63.0
+offset_left = 2.0
+offset_right = 66.0
 texture = ExtResource("11_rfkn0")
 _playerMove = NodePath("../../Player")
 skillCooltimeName = "_stampCooltime"
 curSkillCooltimeName = "_curStampCooltime"
 
 [node name="UIScreenPlayerSkill4Cooltime" parent="Camera2D" node_paths=PackedStringArray("_playerMove") instance=ExtResource("9_3cxv2")]
-offset_left = 12.0
-offset_right = 76.0
+offset_left = 15.0
+offset_right = 79.0
 texture = ExtResource("12_mxcox")
 _playerMove = NodePath("../../Player")
 skillCooltimeName = "_rushCooltime"
 curSkillCooltimeName = "_curRushCooltime"
 
 [node name="UIScreenPlayerDodgeCooltime" parent="Camera2D" node_paths=PackedStringArray("_playerMove") instance=ExtResource("9_3cxv2")]
-offset_left = -14.0
+offset_left = -11.0
 offset_top = 46.0
-offset_right = 50.0
+offset_right = 53.0
 offset_bottom = 110.0
 texture = ExtResource("13_rtstx")
 _playerMove = NodePath("../../Player")
@@ -541,9 +545,9 @@ curSkillCooltimeName = "_curDodgeCooltime"
 IsInvisibleOnReady = true
 
 [node name="UIScreenPlayerDownDodgeCooltime" parent="Camera2D" node_paths=PackedStringArray("_playerMove") instance=ExtResource("9_3cxv2")]
-offset_left = -1.0
+offset_left = 2.0
 offset_top = 46.0
-offset_right = 63.0
+offset_right = 66.0
 offset_bottom = 110.0
 texture = ExtResource("14_knrnl")
 _playerMove = NodePath("../../Player")
@@ -631,7 +635,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("18_2a1de")
+script = ExtResource("18_yuak8")
 _blindColorRect = NodePath("ColorRect")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/UIScreenBlind"]
@@ -655,9 +659,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("19_g5flb")
+script = ExtResource("19_jhpql")
 
-[node name="UIWindowMain" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_GoMainButton", "_OptionButton", "_ContinueButton")]
+[node name="UIPauseWindowMain" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_GoMainButton", "_RestartButton", "_OptionButton", "_ContinueButton")]
 visible = false
 custom_minimum_size = Vector2(77, 79)
 layout_mode = 1
@@ -666,53 +670,63 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -50.0
+offset_right = 39.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.490196, 0.490196, 0.490196, 1)
-script = ExtResource("20_ljv6p")
+script = ExtResource("20_j4k8r")
 _GoMainButton = NodePath("MarginContainer/VBoxContainer/GoMainButton")
+_RestartButton = NodePath("MarginContainer/VBoxContainer/ReStartButton")
 _OptionButton = NodePath("MarginContainer/VBoxContainer/OptionButton")
 _ContinueButton = NodePath("MarginContainer/VBoxContainer/ContinueButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIWindowMain"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowMain"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 78.62
-offset_bottom = 77.895
+offset_right = 77.0
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowMain/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowMain/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowMain/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowMain/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "일시정지"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoMainButton" type="Button" parent="Camera2D/UIPauseMenu/UIWindowMain/MarginContainer/VBoxContainer"]
+[node name="GoMainButton" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowMain/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "매인화면으로"
 
-[node name="OptionButton" type="Button" parent="Camera2D/UIPauseMenu/UIWindowMain/MarginContainer/VBoxContainer"]
+[node name="ReStartButton" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowMain/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "다시시작
+"
+
+[node name="OptionButton" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowMain/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "옵션
 "
 
-[node name="ContinueButton" type="Button" parent="Camera2D/UIPauseMenu/UIWindowMain/MarginContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowMain/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "계속하기
 "
 
-[node name="UIWindowOption" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_MasterSlider", "_BGMSlider", "_SESlider", "_KeySettingButton")]
+[node name="UIPauseWindowOption" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_MasterSlider", "_BGMSlider", "_SESlider", "_KeySettingButton")]
 visible = false
 custom_minimum_size = Vector2(77, 88)
 layout_mode = 1
@@ -724,13 +738,13 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.490196, 0.490196, 0.490196, 1)
-script = ExtResource("21_s5ew1")
+script = ExtResource("21_b2mwg")
 _MasterSlider = NodePath("MarginContainer/VBoxContainer/GridContainer/MasterSlider")
 _BGMSlider = NodePath("MarginContainer/VBoxContainer/GridContainer/BGMSlider")
 _SESlider = NodePath("MarginContainer/VBoxContainer/GridContainer/SESlider")
 _KeySettingButton = NodePath("MarginContainer/VBoxContainer/KeySettingButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIWindowOption"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowOption"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -743,16 +757,16 @@ scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "옵션"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "소리
 "
@@ -760,60 +774,60 @@ label_settings = SubResource("LabelSettings_1sax0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="MasterLabel" type="Label" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MasterLabel" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "전체"
 label_settings = SubResource("LabelSettings_u8r37")
 
-[node name="MasterSlider" type="HSlider" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MasterSlider" type="HSlider" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="BGMLabel" type="Label" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer/GridContainer"]
+[node name="BGMLabel" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "배경"
 label_settings = SubResource("LabelSettings_u8r37")
 
-[node name="BGMSlider" type="HSlider" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer/GridContainer"]
+[node name="BGMSlider" type="HSlider" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SELabel" type="Label" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SELabel" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "효과"
 label_settings = SubResource("LabelSettings_u8r37")
 
-[node name="SESlider" type="HSlider" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SESlider" type="HSlider" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="KeySettingLabel" type="Label" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer"]
+[node name="KeySettingLabel" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "키설정"
 label_settings = SubResource("LabelSettings_hlnbh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KeySettingButton" type="Button" parent="Camera2D/UIPauseMenu/UIWindowOption/MarginContainer/VBoxContainer"]
+[node name="KeySettingButton" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowOption/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "설정
 "
 icon_alignment = 1
 
-[node name="UIWindowKeySetting" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_KeySettingButton")]
+[node name="UIPauseWindowKeySetting" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_KeySettingButton")]
 visible = false
 custom_minimum_size = Vector2(200, 130)
 layout_mode = 1
@@ -822,270 +836,277 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -100.0
+offset_top = -76.0
+offset_right = 100.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.490196, 0.490196, 0.490196, 1)
-script = ExtResource("22_8uxx1")
+script = ExtResource("22_arw0x")
 _KeySettingButton = [NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button3"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button4"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button5"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button6"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer/Button7"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button3"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button4"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Button5"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button3"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button4"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button5"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button6"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer/Button7")]
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 200.0
-offset_bottom = 130.0
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "키설정"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "게임"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "위"
 
-[node name="Button" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_up"
 
-[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "아래"
 
-[node name="Button2" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button2" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_down"
 
-[node name="Label3" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label3" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "왼쪽"
 
-[node name="Button3" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button3" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_left"
 
-[node name="Label4" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label4" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "오른쪽
 "
 
-[node name="Button4" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button4" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_right"
 
-[node name="Label5" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label5" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "공격"
 
-[node name="Button5" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button5" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_attack"
 
-[node name="Label6" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label6" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "점프"
 
-[node name="Button6" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button6" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_jump"
 
-[node name="Label7" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Label7" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "회피"
 
-[node name="Button7" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="Button7" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+text = "a"
+script = ExtResource("23_ncvbu")
 ActionID = "player_dodge"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "스킬
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 columns = 2
 
-[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "가드"
 
-[node name="Button2" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Button2" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "player_skillA"
 
-[node name="Label3" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label3" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "돌진"
 
-[node name="Button3" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Button3" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "player_skillB"
 
-[node name="Label4" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label4" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "찍기"
 
-[node name="Button4" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Button4" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "player_skillC"
 
-[node name="Label5" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label5" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "러시"
 
-[node name="Button5" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Button5" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "player_skillD"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "메뉴"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 columns = 2
 
-[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label2" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "위"
 
-[node name="Button2" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button2" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_up"
 
-[node name="Label3" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label3" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "아래"
 
-[node name="Button3" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button3" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_down"
 
-[node name="Label4" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label4" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "왼쪽"
 
-[node name="Button4" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button4" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_left"
 
-[node name="Label5" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label5" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "오른쪽"
 
-[node name="Button5" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button5" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_right"
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "메뉴
 "
 
-[node name="Button" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_select"
 
-[node name="Label6" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label6" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "확인
 "
 
-[node name="Button6" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button6" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_accept"
 
-[node name="Label7" type="Label" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Label7" type="Label" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 text = "취소"
 
-[node name="Button7" type="Button" parent="Camera2D/UIPauseMenu/UIWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
+[node name="Button7" type="Button" parent="Camera2D/UIPauseMenu/UIPauseWindowKeySetting/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("23_wluk0")
+script = ExtResource("23_ncvbu")
 ActionID = "ui_cancel"
 
-[node name="UIPopupGoBack" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_ConfirmButton", "_CancelButton")]
+[node name="UIPausePopupGoBack" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_ConfirmButton", "_CancelButton")]
 visible = false
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 1
@@ -1097,11 +1118,12 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.705882, 0.705882, 0.705882, 1)
-script = ExtResource("23_pocul")
+script = ExtResource("24_jq3mw")
 _ConfirmButton = NodePath("MarginContainer/VBoxContainer/GridContainer/ConfirmButton")
 _CancelButton = NodePath("MarginContainer/VBoxContainer/GridContainer/CancelButton")
+LobbyScenePath = "res://1_Scene/lobby_scene.tscn"
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIPopupGoBack"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIPausePopupGoBack"]
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 0
 offset_right = 40.0
@@ -1112,10 +1134,10 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPopupGoBack/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPausePopupGoBack/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPopupGoBack/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPausePopupGoBack/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "매인화면으로 돌아갑니다"
@@ -1123,13 +1145,13 @@ label_settings = SubResource("LabelSettings_e8vn6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPopupGoBack/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPausePopupGoBack/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="ConfirmButton" type="Button" parent="Camera2D/UIPauseMenu/UIPopupGoBack/MarginContainer/VBoxContainer/GridContainer"]
+[node name="ConfirmButton" type="Button" parent="Camera2D/UIPauseMenu/UIPausePopupGoBack/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1141,7 +1163,76 @@ focus_next = NodePath("../CancelButton")
 focus_previous = NodePath("../CancelButton")
 text = "확인"
 
-[node name="CancelButton" type="Button" parent="Camera2D/UIPauseMenu/UIPopupGoBack/MarginContainer/VBoxContainer/GridContainer"]
+[node name="CancelButton" type="Button" parent="Camera2D/UIPauseMenu/UIPausePopupGoBack/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../ConfirmButton")
+focus_neighbor_top = NodePath("../ConfirmButton")
+focus_neighbor_right = NodePath("../ConfirmButton")
+focus_neighbor_bottom = NodePath("../ConfirmButton")
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath("../ConfirmButton")
+text = "취소"
+
+[node name="UIPausePopupRestart" type="ColorRect" parent="Camera2D/UIPauseMenu" node_paths=PackedStringArray("_ConfirmButton", "_CancelButton")]
+visible = false
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.705882, 0.705882, 0.705882, 1)
+script = ExtResource("25_li7ge")
+_ConfirmButton = NodePath("MarginContainer/VBoxContainer/GridContainer/ConfirmButton")
+_CancelButton = NodePath("MarginContainer/VBoxContainer/GridContainer/CancelButton")
+ThisScenePath = "res://1_Scene/game_scene.tscn"
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/UIPauseMenu/UIPausePopupRestart"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/UIPauseMenu/UIPausePopupRestart/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera2D/UIPauseMenu/UIPausePopupRestart/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "다시 시작합니다"
+label_settings = SubResource("LabelSettings_e8vn6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Camera2D/UIPauseMenu/UIPausePopupRestart/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="ConfirmButton" type="Button" parent="Camera2D/UIPauseMenu/UIPausePopupRestart/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../CancelButton")
+focus_neighbor_top = NodePath("../CancelButton")
+focus_neighbor_right = NodePath("../CancelButton")
+focus_neighbor_bottom = NodePath("../CancelButton")
+focus_next = NodePath("../CancelButton")
+focus_previous = NodePath("../CancelButton")
+text = "확인"
+
+[node name="CancelButton" type="Button" parent="Camera2D/UIPauseMenu/UIPausePopupRestart/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1157,7 +1248,7 @@ text = "취소"
 position = Vector2(95, 207)
 
 [node name="Warrior" parent="." instance=ExtResource("8_cd5hk")]
-position = Vector2(200, 283)
+position = Vector2(200, 279)
 metadata/_edit_group_ = true
 
 [node name="TestArea" type="Area2D" parent="."]
@@ -1197,4 +1288,9 @@ texture = ExtResource("11_o4q6i")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("27_ewv1i")
+stream = ExtResource("30_63a2b")
+volume_db = -10.0
+autoplay = true
+max_polyphony = 3
+bus = &"BGM"
+script = ExtResource("31_mb2c2")

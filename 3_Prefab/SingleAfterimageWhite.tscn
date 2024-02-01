@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4yp2ishfl0c6"]
+
+[ext_resource type="Shader" path="res://6_Shader/Monochrome.gdshader" id="1_ec052"]
+[ext_resource type="Script" path="res://2_Script/singleAfterimage.cs" id="1_rcem2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p34ku"]
+resource_local_to_scene = true
+shader = ExtResource("1_ec052")
+shader_parameter/_isUsing = true
+shader_parameter/color = Vector4(1, 1, 1, 1)
+
+[node name="singleAfterimage" type="Sprite2D"]
+visible = false
+modulate = Color(0.509804, 1, 1, 1)
+top_level = true
+material = SubResource("ShaderMaterial_p34ku")
+script = ExtResource("1_rcem2")
+afterimageColor = Color(1, 1, 1, 0.588235)
+isUsingShader = true

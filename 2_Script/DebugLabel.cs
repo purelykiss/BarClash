@@ -8,6 +8,6 @@ public partial class DebugLabel : Label
     public override void _PhysicsProcess(double delta)
     {
         Text = "CurrentState: " + _playerMove.FSM.CurrentState.ID
-            + "\nPreVelocity: " + _playerMove.PreVelocity.ToString();
+            + "\nCurPos: " + _playerMove.GlobalPosition.X.ToString("#.##") + "," + _playerMove.GlobalPosition.Y.ToString("#.##");
     }
 }

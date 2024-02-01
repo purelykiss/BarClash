@@ -1,8 +1,8 @@
-[gd_scene load_steps=98 format=3 uid="uid://ba1mcccvka435"]
+[gd_scene load_steps=112 format=3 uid="uid://ba1mcccvka435"]
 
-[ext_resource type="Script" path="res://2_Script/Player/PlayerMove.cs" id="1_nole0"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/PlayerMove.cs" id="1_1cm36"]
 [ext_resource type="Script" path="res://2_Script/PlayerCameraFocus.cs" id="2_gkqpu"]
-[ext_resource type="Shader" path="res://6_Shader/WhiteOut.gdshader" id="2_s1e7h"]
+[ext_resource type="Shader" path="res://6_Shader/Monochrome.gdshader" id="2_ni0ca"]
 [ext_resource type="Texture2D" uid="uid://bgrtxnuobgbkv" path="res://4_Sprite/Character_NoSkinPlayer/Idle/Character Idle 48x48.png" id="3_ow5ex"]
 [ext_resource type="Texture2D" uid="uid://b8bncnu7yqacb" path="res://4_Sprite/Character_NoSkinPlayer/Punch/Player Punch 64x64.png" id="4_jcl4n"]
 [ext_resource type="Texture2D" uid="uid://db400h70741a7" path="res://4_Sprite/Character_NoSkinPlayer/AirSpin/player air spin 48x48.png" id="5_2yvpw"]
@@ -21,39 +21,53 @@
 [ext_resource type="Texture2D" uid="uid://creh7grajxtm4" path="res://4_Sprite/Character_NoSkinPlayer/Run/run cycle 48x48.png" id="14_mffxe"]
 [ext_resource type="Texture2D" uid="uid://dy0eb4a2xy64c" path="res://4_Sprite/Character_NoSkinPlayer/Hurt/Player Hurt 48x48.png" id="15_td53y"]
 [ext_resource type="Texture2D" uid="uid://dpqol0wh3a3rn" path="res://4_Sprite/Character_NoSkinPlayer/Walk/PlayerWalk 48x48.png" id="16_p1hca"]
-[ext_resource type="Script" path="res://2_Script/Player/idle.cs" id="18_ou78w"]
-[ext_resource type="Script" path="res://2_Script/Player/walk.cs" id="19_dqndx"]
-[ext_resource type="Script" path="res://2_Script/Player/run.cs" id="20_butsh"]
-[ext_resource type="Script" path="res://2_Script/Player/jump.cs" id="21_l7677"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/idle.cs" id="19_5u2py"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/walk.cs" id="20_njr6t"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/run.cs" id="21_23pxc"]
 [ext_resource type="Script" path="res://2_Script/AttackList.cs" id="21_ld1dy"]
-[ext_resource type="Script" path="res://2_Script/Player/dashJump.cs" id="22_83mxd"]
 [ext_resource type="Script" path="res://2_Script/PublicAttack.cs" id="22_kmbld"]
-[ext_resource type="Script" path="res://2_Script/Player/fall.cs" id="23_smfyx"]
-[ext_resource type="Script" path="res://2_Script/Player/dashFall.cs" id="24_8hhqf"]
-[ext_resource type="Script" path="res://2_Script/Player/dodge.cs" id="25_330in"]
-[ext_resource type="Script" path="res://2_Script/Player/melee1.cs" id="26_hmh57"]
-[ext_resource type="Script" path="res://2_Script/Player/melee2.cs" id="27_lw2t6"]
-[ext_resource type="Script" path="res://2_Script/Player/melee3.cs" id="28_i18x4"]
-[ext_resource type="Script" path="res://2_Script/Player/dashMelee.cs" id="29_a8a4f"]
-[ext_resource type="Script" path="res://2_Script/Player/jumpMelee.cs" id="30_fqcdq"]
-[ext_resource type="Script" path="res://2_Script/Player/dashJumpMelee1.cs" id="31_w0gti"]
-[ext_resource type="Script" path="res://2_Script/Player/dashJumpMelee2.cs" id="32_600wl"]
-[ext_resource type="Script" path="res://2_Script/Player/guard.cs" id="33_cwbvi"]
-[ext_resource type="Script" path="res://2_Script/Player/straight.cs" id="34_xkfhd"]
-[ext_resource type="Script" path="res://2_Script/Player/stamp.cs" id="35_l7kb2"]
-[ext_resource type="Script" path="res://2_Script/Player/rush.cs" id="36_v1pbt"]
-[ext_resource type="Script" path="res://2_Script/Player/stagger.cs" id="37_y36xp"]
-[ext_resource type="Script" path="res://2_Script/Player/down.cs" id="38_owvte"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/jump.cs" id="22_s6wt2"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/dashJump.cs" id="23_ulvg5"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/fall.cs" id="24_w4rx4"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/dashFall.cs" id="25_10by7"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/dodge.cs" id="26_gymjh"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/melee1.cs" id="27_xtxji"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/melee2.cs" id="28_f3mnj"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/melee3.cs" id="29_in2gh"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/dashMelee.cs" id="30_alhvk"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/jumpMelee.cs" id="31_yn3gn"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/dashJumpMelee1.cs" id="32_3qphl"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/dashJumpMelee2.cs" id="33_atie7"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/guard.cs" id="34_6by4l"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/straight.cs" id="35_ibpic"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/stamp.cs" id="36_45bmk"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/rush.cs" id="37_jhers"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/stagger.cs" id="38_7x0p8"]
+[ext_resource type="Script" path="res://2_Script/UnitPlayer/down.cs" id="39_a834r"]
 [ext_resource type="Script" path="res://2_Script/HPBar.cs" id="40_thtnl"]
 [ext_resource type="Script" path="res://2_Script/EffectList.cs" id="44_r7bl0"]
 [ext_resource type="Script" path="res://2_Script/PublicEffect.cs" id="45_0ldun"]
+[ext_resource type="Script" path="res://2_Script/oneAfterimageEffect.cs" id="46_0wbbh"]
+[ext_resource type="Script" path="res://2_Script/afterimageEffect.cs" id="46_ej486"]
+[ext_resource type="Script" path="res://2_Script/singleAfterimage.cs" id="47_8cbka"]
+[ext_resource type="Script" path="res://2_Script/SoundList.cs" id="47_e0sw7"]
+[ext_resource type="Script" path="res://2_Script/trailEffect.cs" id="48_peifq"]
+[ext_resource type="AudioStream" uid="uid://cg4jpsxuiy7e1" path="res://5_Sound/Sound_Vol.39 Punch Hit Sound Pack/8 Bit Punch Snare by Walter_Odington Id-25616.wav" id="48_qk8xy"]
+[ext_resource type="Script" path="res://2_Script/trailLine.cs" id="49_4ql7l"]
+[ext_resource type="Script" path="res://2_Script/PublicSound.cs" id="49_v5l58"]
+[ext_resource type="AudioStream" uid="uid://cphcsqxikpo2x" path="res://5_Sound/Sound_Pixabay/punch_low.mp3" id="50_cstit"]
+[ext_resource type="AudioStream" uid="uid://cancggs75h2fn" path="res://5_Sound/Sound_Pixabay/punch_high.mp3" id="51_vkfyu"]
+[ext_resource type="AudioStream" uid="uid://hmuwwrvoeelb" path="res://5_Sound/Sound_Pixabay/Dodge.mp3" id="52_t7le5"]
+[ext_resource type="AudioStream" uid="uid://dh41qof8yvetf" path="res://5_Sound/Sound_Pixabay/kick.mp3" id="53_v4blj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bp5md"]
 size = Vector2(10, 30)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fl11g"]
-shader = ExtResource("2_s1e7h")
+resource_local_to_scene = true
+shader = ExtResource("2_ni0ca")
 shader_parameter/_isUsing = false
+shader_parameter/color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_tyial"]
 length = 0.001
@@ -1301,66 +1315,11 @@ size = Vector2(16, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxds6"]
 size = Vector2(15, 30)
 
-[sub_resource type="Animation" id="Animation_8e5lw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("singleAfterImage:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.509804, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("singleAfterImage:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_0liof"]
-resource_name = "effect"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("singleAfterImage:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.509804, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("singleAfterImage:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cehfp"]
-_data = {
-"RESET": SubResource("Animation_8e5lw"),
-"effect": SubResource("Animation_0liof")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1sc4"]
+resource_local_to_scene = true
+shader = ExtResource("2_ni0ca")
+shader_parameter/_isUsing = true
+shader_parameter/color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="Curve" id="Curve_xslop"]
 _data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -1432,20 +1391,12 @@ _data = {
 "effect": SubResource("Animation_qc86c")
 }
 
-[sub_resource type="Curve" id="Curve_2plbl"]
-_data = [Vector2(0, 2), 0.0, -2.0, 0, 1, Vector2(1, 0), -2.0, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_rrupn"]
-offsets = PackedFloat32Array(0, 0.211921, 0.284768, 0.344371, 0.410596, 0.509934, 0.695364)
-colors = PackedColorArray(0, 0, 0, 0, 0.509804, 1, 1, 1, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0.301961, 0.509804, 1, 1, 1, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0)
-
 [sub_resource type="Animation" id="Animation_nnbbp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/path = NodePath("GPUParticles2D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1461,7 +1412,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/path = NodePath("GPUParticles2D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1477,24 +1428,53 @@ _data = {
 "effect": SubResource("Animation_xje3i")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_fsm", "_WallCol", "_UnitCol", "_AtkList", "_EfctList", "_AnimPlayer", "_Sprite", "_CollisionShape") groups=["player"]]
+[sub_resource type="Gradient" id="Gradient_dolhr"]
+offsets = PackedFloat32Array(0, 0.22963, 0.311111, 0.37037, 0.42963, 0.548148, 0.651852, 1)
+colors = PackedColorArray(0.509804, 1, 1, 0, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0.894231, 0.509804, 1, 1, 0, 0.509804, 1, 1, 1, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0, 0.509804, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_smtyv"]
+gradient = SubResource("Gradient_dolhr")
+
+[sub_resource type="Curve" id="Curve_4f78l"]
+_data = [Vector2(0, 2), 0.0, -2.0, 0, 0, Vector2(1, 0), -2.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_if1b2"]
+curve = SubResource("Curve_4f78l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kkqir"]
+emission_shape = 2
+emission_sphere_radius = 20.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+scale_curve = SubResource("CurveTexture_if1b2")
+color_ramp = SubResource("GradientTexture1D_smtyv")
+
+[sub_resource type="Curve" id="Curve_fwwyq"]
+_data = [Vector2(0, 1), 0.0, -0.232057, 0, 0]
+point_count = 1
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_fsm", "_WallCol", "_UnitCol", "_AtkList", "_EfctList", "_SndList", "_AnimPlayer", "_Sprite", "_CollisionShape") groups=["player"]]
 collision_layer = 2
-script = ExtResource("1_nole0")
+script = ExtResource("1_1cm36")
 _fsm = NodePath("FSM")
 _WallCol = NodePath("WallCollision")
 _UnitCol = NodePath("UnitCollision")
 _AtkList = NodePath("AttackList")
 _EfctList = NodePath("EffectList")
+_SndList = NodePath("SoundList")
 _AnimPlayer = NodePath("AnimationPlayer")
 _Sprite = NodePath("Sprite2D")
 _CollisionShape = NodePath("CollisionShape2D")
 _airJumpCnt = 1
-_jumpBufferTime = 0.2
 _downDodgeCooltime = 10.0
 _guardCooltime = 5.0
 _straightCooltime = 7.0
 _stampCooltime = 8.0
-_runActiveTime = 1.0
 _spriteDirection = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1518,89 +1498,89 @@ script = ExtResource("2_gkqpu")
 script = ExtResource("5_dsrie")
 
 [node name="idle" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("18_ou78w")
+script = ExtResource("19_5u2py")
 _playerMove = NodePath("../..")
 
 [node name="walk" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("19_dqndx")
+script = ExtResource("20_njr6t")
 _playerMove = NodePath("../..")
 
 [node name="run" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("20_butsh")
+script = ExtResource("21_23pxc")
 _playerMove = NodePath("../..")
 
 [node name="jump" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("21_l7677")
+script = ExtResource("22_s6wt2")
 _playerMove = NodePath("../..")
 
 [node name="dashJump" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("22_83mxd")
+script = ExtResource("23_ulvg5")
 _playerMove = NodePath("../..")
 
 [node name="fall" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("23_smfyx")
+script = ExtResource("24_w4rx4")
 _playerMove = NodePath("../..")
 
 [node name="dashFall" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("24_8hhqf")
+script = ExtResource("25_10by7")
 _playerMove = NodePath("../..")
 
 [node name="dodge" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("25_330in")
+script = ExtResource("26_gymjh")
 _playerMove = NodePath("../..")
 speed = 1000.0
 
 [node name="melee1" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("26_hmh57")
+script = ExtResource("27_xtxji")
 _playerMove = NodePath("../..")
 
 [node name="melee2" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("27_lw2t6")
+script = ExtResource("28_f3mnj")
 _playerMove = NodePath("../..")
 
 [node name="melee3" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("28_i18x4")
+script = ExtResource("29_in2gh")
 _playerMove = NodePath("../..")
 
 [node name="dashMelee" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("29_a8a4f")
+script = ExtResource("30_alhvk")
 _playerMove = NodePath("../..")
 
 [node name="jumpMelee" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("30_fqcdq")
+script = ExtResource("31_yn3gn")
 _playerMove = NodePath("../..")
 
 [node name="dashJumpMelee1" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("31_w0gti")
+script = ExtResource("32_3qphl")
 _playerMove = NodePath("../..")
 _isTryingActivateAttack = true
 
 [node name="dashJumpMelee2" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("32_600wl")
+script = ExtResource("33_atie7")
 _playerMove = NodePath("../..")
 
 [node name="guard" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("33_cwbvi")
+script = ExtResource("34_6by4l")
 _playerMove = NodePath("../..")
 
 [node name="straight" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("34_xkfhd")
+script = ExtResource("35_ibpic")
 _playerMove = NodePath("../..")
 
 [node name="stamp" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("35_l7kb2")
+script = ExtResource("36_45bmk")
 _playerMove = NodePath("../..")
 
 [node name="rush" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("36_v1pbt")
+script = ExtResource("37_jhers")
 _playerMove = NodePath("../..")
 
 [node name="stagger" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("37_y36xp")
+script = ExtResource("38_7x0p8")
 _playerMove = NodePath("../..")
 
 [node name="down" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
-script = ExtResource("38_owvte")
+script = ExtResource("39_a834r")
 _playerMove = NodePath("../..")
 
 [node name="WallCollision" type="Node2D" parent="." node_paths=PackedStringArray("CollisionUp", "CollisionDown", "CollisionLeft", "CollisionRight")]
@@ -1881,17 +1861,34 @@ shape = SubResource("RectangleShape2D_cxds6")
 [node name="EffectList" type="Node2D" parent="."]
 script = ExtResource("44_r7bl0")
 
-[node name="afterimageEffect" type="Node2D" parent="EffectList"]
+[node name="oneAfterimageEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_baseSprite", "_singleAfterImage")]
+script = ExtResource("46_0wbbh")
+_id = "oneAfterimage"
+_baseSprite = NodePath("../../Sprite2D")
+_singleAfterImage = NodePath("singleAfterimage")
 
-[node name="singleAfterImage" type="Sprite2D" parent="EffectList/afterimageEffect"]
-visible = false
+[node name="singleAfterimage" type="Sprite2D" parent="EffectList/oneAfterimageEffect"]
 modulate = Color(0.509804, 1, 1, 1)
+top_level = true
+material = SubResource("ShaderMaterial_r1sc4")
+script = ExtResource("47_8cbka")
+afterimageColor = Color(1, 1, 1, 1)
+isUsingShader = true
+isOneShot = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EffectList/afterimageEffect/singleAfterImage"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_cehfp")
-}
+[node name="afterimageEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_baseSprite")]
+script = ExtResource("46_ej486")
+_id = "afterimage"
+_baseSprite = NodePath("../../Sprite2D")
+_singleAfterImagePath = "res://3_Prefab/SingleAfterimage.tscn"
+_emitImageTime = 0.1
+
+[node name="afterimageEffectWhite" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_baseSprite")]
+script = ExtResource("46_ej486")
+_id = "afterimageWhite"
+_baseSprite = NodePath("../../Sprite2D")
+_singleAfterImagePath = "res://3_Prefab/SingleAfterimageWhite.tscn"
+_emitImageTime = 0.1
 
 [node name="onHitEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_AnimPlayer")]
 script = ExtResource("45_0ldun")
@@ -1922,25 +1919,65 @@ script = ExtResource("45_0ldun")
 _id = "charging"
 _AnimPlayer = NodePath("AnimationPlayer")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="EffectList/chargingEffect"]
-emitting = false
-amount = 30
-lifetime = 0.5
-emission_shape = 2
-emission_sphere_radius = 20.0
-spread = 0.0
-gravity = Vector2(0, 0)
-orbit_velocity_min = 0.1
-orbit_velocity_max = 0.1
-radial_accel_min = -100.0
-radial_accel_max = -100.0
-scale_amount_curve = SubResource("Curve_2plbl")
-color_ramp = SubResource("Gradient_rrupn")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EffectList/chargingEffect"]
 libraries = {
 "": SubResource("AnimationLibrary_lmf4u")
 }
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="EffectList/chargingEffect"]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_kkqir")
+lifetime = 0.5
+
+[node name="trailEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_trailLine")]
+script = ExtResource("48_peifq")
+_id = "trail"
+_trailLine = NodePath("Line2D")
+
+[node name="Line2D" type="Line2D" parent="EffectList/trailEffect"]
+top_level = true
+width = 1.0
+width_curve = SubResource("Curve_fwwyq")
+default_color = Color(1, 1, 1, 0.784314)
+begin_cap_mode = 1
+end_cap_mode = 1
+script = ExtResource("49_4ql7l")
+_maxLength = 40
+
+[node name="SoundList" type="Node2D" parent="."]
+script = ExtResource("47_e0sw7")
+
+[node name="onHitSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("48_qk8xy")
+volume_db = -5.0
+bus = &"SE"
+script = ExtResource("49_v5l58")
+_id = "onHit"
+
+[node name="punchLowSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("50_cstit")
+volume_db = 10.0
+script = ExtResource("49_v5l58")
+_id = "punchLow"
+
+[node name="punchHighSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("51_vkfyu")
+volume_db = 13.0
+script = ExtResource("49_v5l58")
+_id = "punchHigh"
+
+[node name="dodgeSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("52_t7le5")
+volume_db = 10.0
+script = ExtResource("49_v5l58")
+_id = "dodge"
+
+[node name="kickSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("53_v4blj")
+volume_db = 10.0
+script = ExtResource("49_v5l58")
+_id = "kick"
 
 [node name="HPBar" type="Control" parent="." node_paths=PackedStringArray("unitMove", "_baseRect", "_curRect")]
 layout_mode = 3
@@ -1965,3 +2002,5 @@ layout_mode = 0
 offset_right = 18.0
 offset_bottom = 2.0
 color = Color(1, 0, 0, 1)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]

@@ -38,7 +38,7 @@ public partial class UIScreenSkillCooltime : TextureRect
     {
         if (!flagInitialized)
             Initialize();
-        var Prop = _playerMove.GetPropertyList();
+        //var Prop = _playerMove.GetPropertyList();
 
         _curSkillCooltime = _playerMove.GetSkillCooltime(curSkillCooltimeName); ;
         if(_curSkillCooltime <= 0 || _curSkillCooltime == _skillCooltime)

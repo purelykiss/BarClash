@@ -10,6 +10,7 @@ public interface IUnitMove
     public UnitCollision UnitCol { get; }
     public AttackList AtkList { get; }
     public EffectList EfctList { get; }
+    public SoundList SndList { get; }
 
     public string Affiliation { get; }
     public string EnemyAffiliation { get; }

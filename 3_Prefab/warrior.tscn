@@ -1,59 +1,72 @@
-[gd_scene load_steps=114 format=3 uid="uid://c12gay24o8kbp"]
+[gd_scene load_steps=128 format=3 uid="uid://c12gay24o8kbp"]
 
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorMove.cs" id="1_7vsn0"]
-[ext_resource type="Shader" path="res://6_Shader/WhiteOut.gdshader" id="2_mo1ra"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorMove.cs" id="1_er3a6"]
+[ext_resource type="Shader" path="res://6_Shader/Monochrome.gdshader" id="2_6b431"]
 [ext_resource type="Texture2D" uid="uid://dlnd54bg8y0fp" path="res://4_Sprite/Character_Warrior-V1.3/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" id="3_8d1ui"]
 [ext_resource type="Script" path="res://2_Script/FiniteStateMachine.cs" id="3_d8lt4"]
 [ext_resource type="Script" path="res://2_Script/HPBar.cs" id="3_kv8ai"]
 [ext_resource type="Texture2D" uid="uid://b36wbjealmkva" path="res://4_Sprite/Character_Warrior-V1.3/Warrior/SpriteSheet/Warrior_Sheet-Effect.png" id="4_4mbvf"]
 [ext_resource type="Script" path="res://2_Script/WallCollision.cs" id="4_7tgeg"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorIdle.cs" id="4_35fdm"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorWalk.cs" id="5_2237o"]
 [ext_resource type="Script" path="res://2_Script/OneSideWallCollision.cs" id="5_jgx8h"]
 [ext_resource type="Script" path="res://2_Script/UnitCollision.cs" id="6_26ntq"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorRun.cs" id="6_mtqsj"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorIdle.cs" id="6_61bq5"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorWalk.cs" id="7_7i1a0"]
 [ext_resource type="Script" path="res://2_Script/AttackList.cs" id="7_mf5to"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorJump.cs" id="7_vxrno"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorDashJump.cs" id="8_ajt75"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorFall.cs" id="9_tv5cp"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorRun.cs" id="8_agk1p"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorJump.cs" id="9_spcbw"]
 [ext_resource type="Script" path="res://2_Script/PublicAttack.cs" id="9_uw0pr"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorDashFall.cs" id="10_c8yvn"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorDodge.cs" id="10_q5vcs"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorMelee1.cs" id="11_xo5hr"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorMelee2.cs" id="12_xova3"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorStamp1.cs" id="14_6adq0"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorStamp2.cs" id="15_36soh"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorStamp3.cs" id="16_etqjj"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorBeam1.cs" id="17_mnmx0"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorDashJump.cs" id="10_jtj1e"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorDodge.cs" id="11_y88pn"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorFall.cs" id="12_52dqf"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorDashFall.cs" id="13_8b1s1"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorMelee1.cs" id="14_i6e8f"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorMelee2.cs" id="15_wwslc"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorStamp1.cs" id="16_bqd6n"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorStamp2.cs" id="17_60fei"]
 [ext_resource type="Script" path="res://2_Script/EnemyDetectArea.cs" id="17_pox3p"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorBeam2.cs" id="18_bcm67"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorBeam3.cs" id="19_6gibu"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorBeam4.cs" id="20_cfcyf"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSweep1.cs" id="21_udehm"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSweep2.cs" id="22_1f3mk"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSweep3.cs" id="23_7w0la"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSweep4.cs" id="24_tqxjs"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSweep5.cs" id="25_kr1jo"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSlash1.cs" id="26_otbq4"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSlash2.cs" id="27_00icd"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorStamp3.cs" id="18_mog7n"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorBeam1.cs" id="19_0n6fp"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorBeam2.cs" id="20_hmdwk"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorBeam3.cs" id="21_ppcow"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorBeam4.cs" id="22_anpxn"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSweep1.cs" id="23_jq17q"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSweep2.cs" id="24_2eqix"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSweep3.cs" id="25_d6qor"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSweep4.cs" id="26_w1tr1"]
 [ext_resource type="PackedScene" uid="uid://cyifktcn3emuk" path="res://3_Prefab/WarriorBeamAttack.tscn" id="27_cf7r3"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSlash3.cs" id="28_y5ljd"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorStagger.cs" id="29_rtdwk"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorSweep1Attack.cs" id="30_ilgyy"]
-[ext_resource type="Script" path="res://2_Script/Warrior/WarriorDown.cs" id="30_lbacc"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSweep5.cs" id="27_ev4sp"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSlash1.cs" id="28_x0hni"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSlash2.cs" id="29_tcih6"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSlash3.cs" id="30_63kgo"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorStagger.cs" id="31_hbky5"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorDown.cs" id="32_gs7ia"]
 [ext_resource type="Texture2D" uid="uid://bbguxk4hh3be6" path="res://4_Sprite/Character_Warrior-V1.3/Warrior/WarriorStamp3.png" id="38_kadta"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/WarriorSweep1Attack.cs" id="40_gt0r7"]
 [ext_resource type="Script" path="res://2_Script/SuperArmerBar.cs" id="40_wrsc6"]
 [ext_resource type="Texture2D" uid="uid://fj2iyrs0wq5a" path="res://4_Sprite/Character_Warrior-V1.3/Warrior/WarriorSweep1.png" id="41_0dmw3"]
 [ext_resource type="Texture2D" uid="uid://da1qncbdln1g" path="res://4_Sprite/Character_Warrior-V1.3/Warrior/WarriorSlash3.png" id="42_r8yiw"]
 [ext_resource type="Script" path="res://2_Script/EffectList.cs" id="43_quacn"]
 [ext_resource type="Script" path="res://2_Script/PublicEffect.cs" id="44_e7673"]
+[ext_resource type="Script" path="res://2_Script/afterimageEffect.cs" id="44_hs81k"]
+[ext_resource type="Script" path="res://2_Script/SoundList.cs" id="46_2q0xu"]
+[ext_resource type="AudioStream" uid="uid://cg4jpsxuiy7e1" path="res://5_Sound/Sound_Vol.39 Punch Hit Sound Pack/8 Bit Punch Snare by Walter_Odington Id-25616.wav" id="47_7k0nl"]
+[ext_resource type="Script" path="res://2_Script/PublicSound.cs" id="48_v4w83"]
+[ext_resource type="AudioStream" uid="uid://bfu5ix2ff18sl" path="res://5_Sound/Sound_Pixabay/flashing0_6s.mp3" id="49_u7tef"]
+[ext_resource type="AudioStream" uid="uid://btiyfxq0vwkr3" path="res://5_Sound/Sound_Pixabay/ambient-metal-whoosh-1-174460.mp3" id="50_e432n"]
+[ext_resource type="AudioStream" uid="uid://usiynpubyqut" path="res://5_Sound/Sound_Pixabay/sword0_5s.mp3" id="51_iigmh"]
+[ext_resource type="AudioStream" uid="uid://lsylb5yp1f3j" path="res://5_Sound/Sound_Pixabay/sword_low.mp3" id="52_xld2g"]
+[ext_resource type="AudioStream" uid="uid://ck5odeulnk52c" path="res://5_Sound/Sound_Pixabay/sword_high.mp3" id="53_fjh7k"]
+[ext_resource type="AudioStream" uid="uid://bvx44psb0mfsm" path="res://5_Sound/Sound_Pixabay/wind3_5s.mp3" id="54_oaev8"]
+[ext_resource type="AudioStream" uid="uid://hmuwwrvoeelb" path="res://5_Sound/Sound_Pixabay/Dodge.mp3" id="55_pqqvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xen8"]
 size = Vector2(18, 33)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irq8n"]
-shader = ExtResource("2_mo1ra")
+resource_local_to_scene = true
+shader = ExtResource("2_6b431")
 shader_parameter/_isUsing = false
+shader_parameter/color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_h46nm"]
 length = 0.001
@@ -1248,7 +1261,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_e8jhk"]
 resource_name = "slash1"
-length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1304,7 +1316,7 @@ tracks/4/path = NodePath("Sprite2D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.8),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [63, 64, 65, 66, 67, 78]
@@ -2413,8 +2425,8 @@ size = Vector2(48, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0tvy"]
 size = Vector2(58, 34)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gd3f"]
-size = Vector2(58, 34)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_bxnq7"]
+points = PackedVector2Array(0.9, 13, 11.9, 17, 19, 17, 28.9, 6, 28.9, 3, 23, -6, 15.9, -13, 3.9, -17, -8.1, -17, -20.1, -15, -29.1, -11)
 
 [sub_resource type="Animation" id="Animation_xuhlc"]
 length = 0.001
@@ -2468,7 +2480,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("Sprite2D:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -2476,7 +2488,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_p6wlx"]
@@ -2617,67 +2629,6 @@ _data = {
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_3n4r6"]
 points = PackedVector2Array(32, 10, -62, -29, -159, -53, -72, -16)
 
-[sub_resource type="Animation" id="Animation_8e5lw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("singleAfterImage:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.509804, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("singleAfterImage:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_0liof"]
-resource_name = "effect"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("singleAfterImage:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.509804, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("singleAfterImage:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cehfp"]
-_data = {
-"RESET": SubResource("Animation_8e5lw"),
-"effect": SubResource("Animation_0liof")
-}
-
 [sub_resource type="Curve" id="Curve_faup5"]
 _data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -2748,20 +2699,12 @@ _data = {
 "effect": SubResource("Animation_qc86c")
 }
 
-[sub_resource type="Curve" id="Curve_2i6mx"]
-_data = [Vector2(0, 2), 0.0, -2.0, 0, 1, Vector2(1, 0), -2.0, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_e1uto"]
-offsets = PackedFloat32Array(0, 0.211921, 0.284768, 0.344371, 0.410596, 0.509934, 0.695364)
-colors = PackedColorArray(0, 0, 0, 0, 0.509804, 1, 1, 1, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0.301961, 0.509804, 1, 1, 1, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0)
-
 [sub_resource type="Animation" id="Animation_nnbbp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/path = NodePath("GPUParticles2D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2777,7 +2720,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/path = NodePath("GPUParticles2D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2793,17 +2736,152 @@ _data = {
 "effect": SubResource("Animation_xje3i")
 }
 
+[sub_resource type="Gradient" id="Gradient_eu822"]
+offsets = PackedFloat32Array(0, 0.22963, 0.311111, 0.37037, 0.42963, 0.548148, 0.651852, 1)
+colors = PackedColorArray(0.509804, 1, 1, 0, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0.894231, 0.509804, 1, 1, 0, 0.509804, 1, 1, 1, 0.509804, 1, 1, 1, 0.509804, 1, 1, 0, 0.509804, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oa2tg"]
+gradient = SubResource("Gradient_eu822")
+
+[sub_resource type="Curve" id="Curve_2lens"]
+_data = [Vector2(0, 2), 0.0, -2.0, 0, 0, Vector2(1, 0), -2.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lda60"]
+curve = SubResource("Curve_2lens")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_el88l"]
+emission_shape = 2
+emission_sphere_radius = 20.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+scale_curve = SubResource("CurveTexture_lda60")
+color_ramp = SubResource("GradientTexture1D_oa2tg")
+
+[sub_resource type="Animation" id="Animation_xnjig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rifw5"]
+resource_name = "effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(2.63, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(38, 2), Vector2(38, 2), Vector2(2, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-18, 4), Vector2(-18, 4), Vector2(-18, 5), Vector2(0, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ra5dy"]
+_data = {
+"RESET": SubResource("Animation_xnjig"),
+"effect": SubResource("Animation_rifw5")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y0j0"]
 size = Vector2(580, 323)
 
-[node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("_fsm", "_WallCol", "_UnitCol", "_AtkList", "_EfctList", "_AnimPlayer", "_Sprite", "_DetectArea") groups=["enemy"]]
+[node name="Warrior" type="CharacterBody2D" node_paths=PackedStringArray("_fsm", "_WallCol", "_UnitCol", "_AtkList", "_EfctList", "_SndList", "_AnimPlayer", "_Sprite", "_DetectArea") groups=["enemy"]]
 collision_layer = 2
-script = ExtResource("1_7vsn0")
+script = ExtResource("1_er3a6")
 _fsm = NodePath("FSM")
 _WallCol = NodePath("WallCollision")
 _UnitCol = NodePath("UnitCollision")
 _AtkList = NodePath("AttackList")
 _EfctList = NodePath("EffectList")
+_SndList = NodePath("SoundList")
 _AnimPlayer = NodePath("AnimationPlayer")
 _Sprite = NodePath("Sprite2D")
 _DetectArea = NodePath("DetectArea")
@@ -2830,113 +2908,113 @@ libraries = {
 script = ExtResource("3_d8lt4")
 
 [node name="idle" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("4_35fdm")
+script = ExtResource("6_61bq5")
 _warriorMove = NodePath("../..")
 
 [node name="walk" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("5_2237o")
+script = ExtResource("7_7i1a0")
 _warriorMove = NodePath("../..")
 
 [node name="run" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("6_mtqsj")
+script = ExtResource("8_agk1p")
 _warriorMove = NodePath("../..")
 
 [node name="jump" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("7_vxrno")
+script = ExtResource("9_spcbw")
 _warriorMove = NodePath("../..")
 
 [node name="dashJump" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("8_ajt75")
+script = ExtResource("10_jtj1e")
 _warriorMove = NodePath("../..")
 
 [node name="dodge" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("10_q5vcs")
+script = ExtResource("11_y88pn")
 _warriorMove = NodePath("../..")
 
 [node name="fall" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("9_tv5cp")
+script = ExtResource("12_52dqf")
 _warriorMove = NodePath("../..")
 
 [node name="dashFall" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("10_c8yvn")
+script = ExtResource("13_8b1s1")
 _warriorMove = NodePath("../..")
 
 [node name="melee1" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("11_xo5hr")
+script = ExtResource("14_i6e8f")
 _warriorMove = NodePath("../..")
 
 [node name="melee2" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("12_xova3")
+script = ExtResource("15_wwslc")
 _warriorMove = NodePath("../..")
 
 [node name="stamp1" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("14_6adq0")
+script = ExtResource("16_bqd6n")
 _warriorMove = NodePath("../..")
 
 [node name="stamp2" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("15_36soh")
+script = ExtResource("17_60fei")
 _warriorMove = NodePath("../..")
 _availablePhase = 2
 
 [node name="stamp3" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("16_etqjj")
+script = ExtResource("18_mog7n")
 _warriorMove = NodePath("../..")
 
 [node name="beam1" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("17_mnmx0")
+script = ExtResource("19_0n6fp")
 _warriorMove = NodePath("../..")
 _staggerImmune = 3
 
 [node name="beam2" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("18_bcm67")
+script = ExtResource("20_hmdwk")
 _warriorMove = NodePath("../..")
 
 [node name="beam3" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("19_6gibu")
+script = ExtResource("21_ppcow")
 _warriorMove = NodePath("../..")
 
 [node name="beam4" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("20_cfcyf")
+script = ExtResource("22_anpxn")
 _warriorMove = NodePath("../..")
 
 [node name="sweep1" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("21_udehm")
+script = ExtResource("23_jq17q")
 _warriorMove = NodePath("../..")
 
 [node name="sweep2" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("22_1f3mk")
+script = ExtResource("24_2eqix")
 _warriorMove = NodePath("../..")
 
 [node name="sweep3" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("23_7w0la")
+script = ExtResource("25_d6qor")
 _warriorMove = NodePath("../..")
 
 [node name="sweep4" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("24_tqxjs")
+script = ExtResource("26_w1tr1")
 _warriorMove = NodePath("../..")
 
 [node name="sweep5" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("25_kr1jo")
+script = ExtResource("27_ev4sp")
 _warriorMove = NodePath("../..")
 
 [node name="slash1" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("26_otbq4")
+script = ExtResource("28_x0hni")
 _warriorMove = NodePath("../..")
 
 [node name="slash2" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("27_00icd")
+script = ExtResource("29_tcih6")
 _warriorMove = NodePath("../..")
 
 [node name="slash3" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("28_y5ljd")
+script = ExtResource("30_63kgo")
 _warriorMove = NodePath("../..")
 
 [node name="stagger" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("29_rtdwk")
+script = ExtResource("31_hbky5")
 _warriorMove = NodePath("../..")
 
 [node name="down" type="Node" parent="FSM" node_paths=PackedStringArray("_warriorMove")]
-script = ExtResource("30_lbacc")
+script = ExtResource("32_gs7ia")
 _warriorMove = NodePath("../..")
 
 [node name="WallCollision" type="Node2D" parent="." node_paths=PackedStringArray("CollisionUp", "CollisionDown", "CollisionLeft", "CollisionRight")]
@@ -3133,7 +3211,7 @@ _isActivate = true
 [node name="sweep1Attack" type="Area2D" parent="AttackList" node_paths=PackedStringArray("_warriorMove", "_Sprite", "_AnimPlayer")]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("30_ilgyy")
+script = ExtResource("40_gt0r7")
 _warriorMove = NodePath("../..")
 _pushPower = Vector2(0, 150)
 _isActivate = true
@@ -3237,7 +3315,7 @@ _stagger = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackList/slash2Attack"]
 visible = false
 position = Vector2(13, 1)
-shape = SubResource("RectangleShape2D_4gd3f")
+shape = SubResource("ConvexPolygonShape2D_bxnq7")
 
 [node name="slash3Attack" type="Area2D" parent="AttackList" node_paths=PackedStringArray("_Sprite", "_AnimPlayer")]
 collision_layer = 0
@@ -3270,17 +3348,12 @@ shape = SubResource("ConvexPolygonShape2D_3n4r6")
 [node name="EffectList" type="Node2D" parent="."]
 script = ExtResource("43_quacn")
 
-[node name="afterimageEffect" type="Node2D" parent="EffectList"]
-
-[node name="singleAfterImage" type="Sprite2D" parent="EffectList/afterimageEffect"]
-visible = false
-modulate = Color(0.509804, 1, 1, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EffectList/afterimageEffect/singleAfterImage"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_cehfp")
-}
+[node name="afterimageEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_baseSprite")]
+script = ExtResource("44_hs81k")
+_id = "afterimage"
+_baseSprite = NodePath("../../Sprite2D")
+_singleAfterImagePath = "res://3_Prefab/SingleAfterimage.tscn"
+_emitImageTime = 0.1
 
 [node name="onHitEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_AnimPlayer")]
 script = ExtResource("44_e7673")
@@ -3311,25 +3384,84 @@ script = ExtResource("44_e7673")
 _id = "charging"
 _AnimPlayer = NodePath("AnimationPlayer")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="EffectList/chargingEffect"]
-emitting = false
-amount = 30
-lifetime = 0.5
-emission_shape = 2
-emission_sphere_radius = 20.0
-spread = 0.0
-gravity = Vector2(0, 0)
-orbit_velocity_min = 0.1
-orbit_velocity_max = 0.1
-radial_accel_min = -100.0
-radial_accel_max = -100.0
-scale_amount_curve = SubResource("Curve_2i6mx")
-color_ramp = SubResource("Gradient_e1uto")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EffectList/chargingEffect"]
 libraries = {
 "": SubResource("AnimationLibrary_lmf4u")
 }
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="EffectList/chargingEffect"]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_el88l")
+lifetime = 0.5
+
+[node name="eyeHighlightEffect" type="Node2D" parent="EffectList" node_paths=PackedStringArray("_AnimPlayer")]
+script = ExtResource("44_e7673")
+_id = "eyeHighlight"
+_AnimPlayer = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EffectList/eyeHighlightEffect"]
+libraries = {
+"": SubResource("AnimationLibrary_ra5dy")
+}
+
+[node name="ColorRect" type="ColorRect" parent="EffectList/eyeHighlightEffect"]
+visible = false
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = 6.0
+color = Color(0, 0, 0, 1)
+
+[node name="SoundList" type="Node2D" parent="."]
+script = ExtResource("46_2q0xu")
+
+[node name="onHitSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("47_7k0nl")
+volume_db = -5.0
+bus = &"SE"
+script = ExtResource("48_v4w83")
+_id = "onHit"
+
+[node name="flashingSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("49_u7tef")
+script = ExtResource("48_v4w83")
+_id = "flashing"
+
+[node name="slash3Sound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("50_e432n")
+volume_db = 10.0
+script = ExtResource("48_v4w83")
+_id = "slash3"
+
+[node name="swordHeavySound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("51_iigmh")
+volume_db = 15.0
+script = ExtResource("48_v4w83")
+_id = "swordHeavy"
+
+[node name="swordLowSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("52_xld2g")
+volume_db = 10.0
+script = ExtResource("48_v4w83")
+_id = "swordLow"
+
+[node name="swordHighSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("53_fjh7k")
+volume_db = 10.0
+script = ExtResource("48_v4w83")
+_id = "swordHigh"
+
+[node name="windSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("54_oaev8")
+volume_db = 10.0
+script = ExtResource("48_v4w83")
+_id = "wind"
+
+[node name="dodgeSound" type="AudioStreamPlayer2D" parent="SoundList"]
+stream = ExtResource("55_pqqvf")
+volume_db = 10.0
+script = ExtResource("48_v4w83")
+_id = "dodge"
 
 [node name="HPBar" type="Control" parent="." node_paths=PackedStringArray("unitMove", "_baseRect", "_curRect")]
 layout_mode = 3

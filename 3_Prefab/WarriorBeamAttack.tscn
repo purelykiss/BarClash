@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cyifktcn3emuk"]
 
-[ext_resource type="Script" path="res://2_Script/Warrior/PublicRangeProjectile.cs" id="1_1co2k"]
+[ext_resource type="Script" path="res://2_Script/UnitWarrior/PublicRangeProjectile.cs" id="1_nf003"]
 [ext_resource type="Texture2D" uid="uid://dudl3uke6ys0k" path="res://4_Sprite/Character_Warrior-V1.3/Warrior/WarriorBeam.png" id="2_00o50"]
 
 [sub_resource type="Animation" id="Animation_mu44j"]
@@ -195,7 +195,7 @@ points = PackedVector2Array(-16, -17, -13, -18.5, -2.045, -18.5, 6.215, -13.79, 
 [node name="WarriorBeamAttack" type="Area2D" node_paths=PackedStringArray("_Sprite", "_AnimPlayer")]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_1co2k")
+script = ExtResource("1_nf003")
 _damage = 50
 _atkCooltime = 100.0
 _pushPower = Vector2(100, 100)

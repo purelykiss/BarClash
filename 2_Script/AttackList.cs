@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 /// <summary>
 /// 공격 Area2D들을 모으고 담당하는 곳.<br/>반드시 모든 공격의 방향을 통일시키고 attackDirection에 기입할 것

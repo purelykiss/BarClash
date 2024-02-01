@@ -199,7 +199,7 @@ public partial class PublicAttack : Area2D, IAttackBox
 
         if(flag)
         {
-            foreach(var item in _UnitAndAttacktedInZone)
+            foreach (var item in _UnitAndAttacktedInZone)
             {
                 _UnitAndAttacktedInZone[item.Key] = (false, item.Value.Item2);
             }

@@ -31,10 +31,6 @@ public partial class Camera : Camera2D
         SignalManager.instance.EmitSignal("BGPos", GlobalPosition);
     }
 
-    public override void _Process(double delta)
-	{
-	}
-
 	void FollowFocus()
 	{
 		Position = Focus;

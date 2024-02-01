@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Practice_FSM"
-run/main_scene="res://1_Scene/game_scene.tscn"
+run/main_scene="res://1_Scene/lobby_scene.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 config/icon="res://icon.svg"
 
