@@ -7,6 +7,7 @@ public partial class UIScreenSkillCooltime : TextureRect
     [Export] PlayerMove _playerMove;
     [Export] string skillCooltimeName;
     [Export] string curSkillCooltimeName;
+    [Export] string skillSlot;
     [Export] bool IsInvisibleOnReady = false;
     [Export] ColorRect _blindRect;
     [Export] Label _countLabel;
@@ -74,6 +75,9 @@ public partial class UIScreenSkillCooltime : TextureRect
         if (!_playerMove.IsSkillNameValid(curSkillCooltimeName))
             flagError = true;
 
+        /*if (!_playerMove.IsSkillSlotValid(skillSlot))
+            flagError = true;*/
+
         if (flagError)
         {
             GD.PrintErr(Name + ": Something is wrong");
@@ -82,6 +86,7 @@ public partial class UIScreenSkillCooltime : TextureRect
         }
 
         _skillCooltime = _playerMove.GetSkillCooltime(skillCooltimeName);
+        //_skillCooltime = _playerMove.GetSkillVO(skillSlot);
         GD.Print(_skillCooltime);    //디버그
         flagInitialized = true;
     }
