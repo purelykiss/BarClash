@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://d1tyc2vmfmcdd"]
+
+[ext_resource type="Texture2D" uid="uid://dfpmt7mk7uhha" path="res://4_Sprite/Icon_CustomIcon/IconPlayerStamp.png" id="1_j1cl6"]
+[ext_resource type="Script" path="res://2_Script/resources/frame/SkillData.cs" id="1_ykrie"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_ykrie")
+UnitID = "player"
+SkillName = "stamp"
+StateID = "stamp"
+Icon = ExtResource("1_j1cl6")
+Cooltime = 5.0

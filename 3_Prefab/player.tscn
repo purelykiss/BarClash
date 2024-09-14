@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://ba1mcccvka435"]
+[gd_scene load_steps=119 format=3 uid="uid://ba1mcccvka435"]
 
 [ext_resource type="Script" path="res://2_Script/UnitPlayer/PlayerMove.cs" id="1_1cm36"]
 [ext_resource type="Script" path="res://2_Script/PlayerCameraFocus.cs" id="2_gkqpu"]
@@ -44,9 +44,15 @@
 [ext_resource type="Script" path="res://2_Script/UnitPlayer/rush.cs" id="37_jhers"]
 [ext_resource type="Script" path="res://2_Script/UnitPlayer/stagger.cs" id="38_7x0p8"]
 [ext_resource type="Script" path="res://2_Script/UnitPlayer/down.cs" id="39_a834r"]
+[ext_resource type="Script" path="res://2_Script/SkillControl.cs" id="40_0odt8"]
 [ext_resource type="Script" path="res://2_Script/HPBar.cs" id="40_thtnl"]
+[ext_resource type="Resource" uid="uid://coefvqroy1i1o" path="res://2_Script/resources/skill/player/Guard.tres" id="41_fricp"]
+[ext_resource type="Resource" uid="uid://dn1af6gil03tl" path="res://2_Script/resources/skill/player/Rush.tres" id="42_j61yf"]
+[ext_resource type="Resource" uid="uid://d1tyc2vmfmcdd" path="res://2_Script/resources/skill/player/Stamp.tres" id="43_o3xnx"]
 [ext_resource type="Script" path="res://2_Script/EffectList.cs" id="44_r7bl0"]
+[ext_resource type="Resource" uid="uid://guumu1dwy585" path="res://2_Script/resources/skill/player/Straight.tres" id="44_rli5g"]
 [ext_resource type="Script" path="res://2_Script/PublicEffect.cs" id="45_0ldun"]
+[ext_resource type="Script" path="res://2_Script/resources/frame/SkillSlotData.cs" id="45_up8xp"]
 [ext_resource type="Script" path="res://2_Script/oneAfterimageEffect.cs" id="46_0wbbh"]
 [ext_resource type="Script" path="res://2_Script/afterimageEffect.cs" id="46_ej486"]
 [ext_resource type="Script" path="res://2_Script/singleAfterimage.cs" id="47_8cbka"]
@@ -1282,6 +1288,13 @@ _data = {
 "walk": SubResource("Animation_2su5a")
 }
 
+[sub_resource type="Resource" id="Resource_gg12v"]
+script = ExtResource("45_up8xp")
+SkillAName = "guard"
+SkillBName = "straight"
+SkillCName = "stamp"
+SkillDName = "rush"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2fmb"]
 size = Vector2(10, 30)
 
@@ -1582,6 +1595,11 @@ _playerMove = NodePath("../..")
 [node name="down" type="Node" parent="FSM" node_paths=PackedStringArray("_playerMove")]
 script = ExtResource("39_a834r")
 _playerMove = NodePath("../..")
+
+[node name="SkillControl" type="Node" parent="."]
+script = ExtResource("40_0odt8")
+_skillDataList = Array[Object]([ExtResource("41_fricp"), ExtResource("44_rli5g"), ExtResource("43_o3xnx"), ExtResource("42_j61yf")])
+_skillSlotData = SubResource("Resource_gg12v")
 
 [node name="WallCollision" type="Node2D" parent="." node_paths=PackedStringArray("CollisionUp", "CollisionDown", "CollisionLeft", "CollisionRight")]
 script = ExtResource("8_q2ujp")

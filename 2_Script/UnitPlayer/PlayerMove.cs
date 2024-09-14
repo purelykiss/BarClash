@@ -10,6 +10,7 @@ public partial class PlayerMove : CharacterBody2D, IUnitMove
     [Export] private UnitCollision _UnitCol;
     [Export] private AttackList _AtkList;
     [Export] private EffectList _EfctList;
+    [Export] private SkillControl _SkillCon;
     [Export] private SoundList _SndList;
     [Export] private AnimationPlayer _AnimPlayer;
     [Export] private Sprite2D _Sprite;

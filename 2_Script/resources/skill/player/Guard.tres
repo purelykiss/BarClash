@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://coefvqroy1i1o"]
+
+[ext_resource type="Texture2D" uid="uid://bxl2t1kln3iad" path="res://4_Sprite/Icon_CustomIcon/IconPlayerGuard.png" id="1_sj8f5"]
+[ext_resource type="Script" path="res://2_Script/resources/frame/SkillData.cs" id="2_y4yol"]
+
+[resource]
+script = ExtResource("2_y4yol")
+UnitID = "player"
+SkillName = "guard"
+StateID = "guard"
+Icon = ExtResource("1_sj8f5")
+Cooltime = 3.0

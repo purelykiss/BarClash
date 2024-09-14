@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://dn1af6gil03tl"]
+
+[ext_resource type="Texture2D" uid="uid://ddh2mwkjv0mdo" path="res://4_Sprite/Icon_CustomIcon/IconPlayerRush.png" id="1_7vxi2"]
+[ext_resource type="Script" path="res://2_Script/resources/frame/SkillData.cs" id="1_7ytrp"]
+
+[resource]
+script = ExtResource("1_7ytrp")
+UnitID = "player"
+SkillName = "rush"
+StateID = "rush"
+Icon = ExtResource("1_7vxi2")
+Cooltime = 20.0

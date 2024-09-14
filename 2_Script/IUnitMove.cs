@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public interface IUnitMove
 {
     public FiniteStateMachine FSM { get; }
-
     public WallCollision WallCol { get; }
     public UnitCollision UnitCol { get; }
     public AttackList AtkList { get; }
