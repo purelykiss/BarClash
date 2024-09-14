@@ -110,6 +110,7 @@ public partial class WarriorMove : CharacterBody2D, IUnitMove
     List<HitData> _HitList = new List<HitData>();
 
 
+
     public FiniteStateMachine FSM => _fsm;
 
     public WallCollision WallCol => _WallCol;

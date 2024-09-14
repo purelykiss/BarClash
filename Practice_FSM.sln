@@ -1,12 +1,18 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice_FSM", "Practice_FSM.csproj", "{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practice_FSM", "Practice_FSM.csproj", "{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice_FSMTests", "..\Practice_FSMTests\Practice_FSMTests.csproj", "{0DF9DD16-5C09-4548-94B0-9F9C04736B50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +21,18 @@ Global
 		{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}.Release|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{B1DAFE77-5013-4D16-9FAE-6D5A3A48F7E5}.Release|Any CPU.Build.0 = ExportRelease|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF9DD16-5C09-4548-94B0-9F9C04736B50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

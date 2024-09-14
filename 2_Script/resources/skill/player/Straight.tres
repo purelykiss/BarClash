@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://guumu1dwy585"]
+
+[ext_resource type="Texture2D" uid="uid://14to7btfuwxo" path="res://4_Sprite/Icon_CustomIcon/IconPlayerStraight.png" id="1_48jsl"]
+[ext_resource type="Script" path="res://2_Script/resources/frame/SkillData.cs" id="1_80yba"]
+
+[resource]
+script = ExtResource("1_80yba")
+UnitID = "player"
+SkillName = "straight"
+StateID = "straight"
+Icon = ExtResource("1_48jsl")
+Cooltime = 5.0
